@@ -1,0 +1,163 @@
+<!-- flowers.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flowers for You 🌹</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom, #fffbe6, #fff);
+      color: #333;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+      overflow: hidden;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 30px;
+      color: #d63384;
+      text-shadow: 1px 1px 3px #ffc0cb;
+    }
+
+    .flower-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 40px;
+    }
+
+    .flower {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(5px);
+    }
+
+    .flower img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .flower:hover {
+      transform: scale(1.1);
+    }
+
+    .cat-text {
+      font-size: 1.5em;
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 10px 20px;
+      border-radius: 15px;
+      display: inline-block;
+      animation: slideIn 2s ease-in-out;
+      color: #d63384;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -50px;
+        transform: rotate(45deg) translateX(0);
+        opacity: 0.5;
+      }
+      100% {
+        bottom: 100%;
+        transform: rotate(45deg) translateX(-30px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>These are all yours januuuu</h1>
+  <div class="cat-text">🐱 Catttooo: "Pick Siam's favorite flower other than Poriii!"</div>
+  <div class="flower-grid">
+    <div class="flower" onclick="goToNext()">
+      <img src="C:\study materials for 1-2\CE-105(surveying)\sunflower.png" alt="Sunflower" />
+    </div>
+    <div class="flower" onclick="wrongPick()">
+      <img src="C:\study materials for 1-2\CE-105(surveying)\rose.png" alt="Rose" />
+    </div>
+    <div class="flower" onclick="wrongPick()">
+      <img src="C:\study materials for 1-2\CE-105(surveying)\tulip.png" alt="Tulip" />
+    </div>
+    <div class="flower" onclick="wrongPick()">
+      <img src="C:\study materials for 1-2\CE-105(surveying)\daisy.png" alt="Daisy" />
+    </div>
+  </div>
+
+  <script>
+    function goToNext() {
+      window.location.href = 'universe.html';
+    }
+
+    function wrongPick() {
+      alert("Hmm... try again my love 💘");
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 6 + 's';
+        heart.style.backgroundColor = ["#ffc0cb", "#ff69b4", "#ffb6c1"][Math.floor(Math.random() * 3)];
+        document.body.appendChild(heart);
+      }
+    }
+
+    createHearts();
+  </script>
+</body>
+</html>
